@@ -1,0 +1,137 @@
+/* Container for the upload section */
+.upload-container {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.description {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+/* Wrapper for the file input and cancel icon */
+.file-upload-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* File input wrapper with cancel icon */
+.file-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+}
+
+.file-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Cancel icon styling */
+.cancel-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+  font-weight: bold;
+  user-select: none;
+}
+
+.cancel-icon:hover {
+  color: darkred;
+}
+
+/* Upload button styling */
+.upload-btn {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #45a049;
+}
+
+.upload-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error message styling */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+/* Success result section styling */
+.result-section {
+  margin-top: 20px;
+}
+
+.result-link {
+  color: #2c7dff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.result-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .upload-container {
+    padding: 15px;
+    width: 90%;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .file-input-wrapper {
+    max-width: 100%;
+  }
+
+  .file-input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .upload-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}
