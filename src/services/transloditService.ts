@@ -7,10 +7,9 @@ export const createAssembly = async (file: any, templateId: any) => {
       key: import.meta.env.VITE_TRANSLOADIT_AUTH_KEY, // Your Transloadit Auth Key
       expires: expiresISO,
     },
-    template_id: templateId, // ID of your template
+    template_id: templateId, // Pass your Transloadit template ID
   };
 
-  console.log(params, "params");
   const paramsString = JSON.stringify(params);
 
   const formData = new FormData();
@@ -30,5 +29,39 @@ export const createAssembly = async (file: any, templateId: any) => {
     throw new Error(`Failed to create assembly: ${errorText}`);
   }
 
-  return await response.json();
+  const assemblyResult = await response.json();
+
+  // Return the assembly result for polling
+  return assemblyResult;
+};
+
+// Poll the assembly URL until processing is complete
+export const pollAssembly = async (assemblyUrl: string, interval = 2000) => {
+  let isCompleted = false;
+  let assemblyResult = null;
+
+  while (!isCompleted) {
+    const response = await fetch(assemblyUrl, {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    assemblyResult = await response.json();
+
+    if (assemblyResult.ok === "ASSEMBLY_COMPLETED") {
+      isCompleted = true; // Assembly has completed
+      return assemblyResult;
+    } else if (assemblyResult.ok === "ASSEMBLY_EXECUTING") {
+      console.log("Assembly still processing... polling again.");
+    } else if (assemblyResult.ok === "ASSEMBLY_FAILED") {
+      throw new Error("Assembly processing failed.");
+    }
+
+    // Wait before polling again
+    await new Promise((resolve) => setTimeout(resolve, interval));
+  }
+
+  return assemblyResult;
 };
