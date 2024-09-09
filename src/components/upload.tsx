@@ -160,6 +160,17 @@ const UploadComponent: React.FC = () => {
             </div>
           )}
 
+          {/* Display Transcription Results if present */}
+          {assembly.results.transcribed && assembly.results.transcribed[0] && (
+            <div className="result-item">
+              <h4>Transcribed Text:</h4>
+              <pre>{assembly.results.transcribed[0].text}</pre>
+              <a href={assembly.results.transcribed[0].ssl_url} target="_blank" className="result-link">
+                Download Transcription
+              </a>
+            </div>
+          )}
+
           {/* Display Original File */}
           {assembly.results[":original"] && assembly.results[":original"][0] && (
             <div className="result-item">
