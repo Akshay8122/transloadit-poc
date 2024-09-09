@@ -160,6 +160,35 @@ const UploadComponent: React.FC = () => {
             </div>
           )}
 
+          {assembly.results.video_thumbed && assembly.results.video_thumbed.length > 0 && (
+            <div className="result-item">
+              <h4>Video Thumbnails:</h4>
+              <div className="video-thumbnails-grid">
+                {assembly.results.video_thumbed.map((thumb: any, index: number) => (
+                  <a
+                    key={index}
+                    href={thumb.ssl_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="video-thumbnail-item"
+                  >
+                    <img src={thumb.ssl_url} alt={`Thumbnail ${index + 1}`} className="video-thumbnail-image" />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Display iPad Encoded Video if present */}
+          {assembly.results.ipad_encoded && assembly.results.ipad_encoded[0] && (
+            <div className="result-item">
+              <h4>iPad Encoded Video:</h4>
+              <a href={assembly.results.ipad_encoded[0].ssl_url} target="_blank" className="result-link">
+                Download iPad Encoded Video
+              </a>
+            </div>
+          )}
+
           {/* Display Transcription Results if present */}
           {assembly.results.transcribed && assembly.results.transcribed[0] && (
             <div className="result-item">
