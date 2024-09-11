@@ -33,5 +33,5 @@ This project demonstrates how to use Transloadit for processing file uploads, in
 
 1. Clone using below command:
    ```bash
-   git clone https://github.com/Akshay8122/PWA-Practice
+   git clone https://github.com/Akshay8122/transloadit-poc
    ```
