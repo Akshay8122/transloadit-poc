@@ -6,11 +6,15 @@ This project demonstrates how to use Transloadit for processing file uploads, in
 
 ## Features
 
-- **Image Resizing**: Automatically resizes images to a defined width and height.
+- **Image Resizing/optimize**: Automatically resizes images to a defined width and height.
 - **Video Thumbnails**: Generates multiple thumbnails from videos for preview purposes.
 - **Video Encoding**: Encodes videos optimized for iPad devices.
 - **Audio Transcoding**: Converts audio files into MP3 format.
 - **Document Conversion**: Converts any uploaded document into PDF format.
+- **Face Detection**: Detect face & cordinates using AI robot.
+- **Speech Recognition**: Detect speech recognition when prompt given to transloadit.
+- **Transcribe**: Convert text from uploaded audio files.
+- **Archived Files**: Generate zip file for uploaded resources.
 - **Export to S3**: Automatically uploads the processed files to an Amazon S3 bucket.
 
 ## Usage
