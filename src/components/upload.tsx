@@ -97,17 +97,15 @@ const UploadComponent: React.FC = () => {
       {assembly && isUploaded && (
         <div className="result-section">
           <h3 className="success-message">File processed successfully!</h3>
-
-          {/* Display Resized Image if present */}
+          {/* Display Optimize Image if present */}
           {assembly.results.image_thumbed && assembly.results.image_thumbed[0] && (
             <div className="result-item">
               <h4>Resized Image:</h4>
               <a href={assembly.results.image_thumbed[0].ssl_url} target="_blank" className="result-link">
-                Download Resized Image
+                Download Optimize Image
               </a>
             </div>
           )}
-
           {/* Display Converted Document if present */}
           {assembly.results.document_converted && assembly.results.document_converted[0] && (
             <div className="result-item">
@@ -117,7 +115,6 @@ const UploadComponent: React.FC = () => {
               </a>
             </div>
           )}
-
           {/* Display Face Detection Results if present */}
           {assembly.results.faces_detected && assembly.results.faces_detected[0] && (
             <div className="result-item">
@@ -131,7 +128,6 @@ const UploadComponent: React.FC = () => {
               </a>
             </div>
           )}
-
           {/* Display Text-to-Speech Result */}
           {assembly.results?.speech && assembly.results?.speech[0] && (
             <div className="result-item">
@@ -145,7 +141,6 @@ const UploadComponent: React.FC = () => {
               </a>
             </div>
           )}
-
           {/* Display Transcoded Audio if present */}
           {assembly.results.audio_transcoded && assembly.results.audio_transcoded[0] && (
             <div className="result-item">
@@ -159,7 +154,6 @@ const UploadComponent: React.FC = () => {
               </a>
             </div>
           )}
-
           {assembly.results.video_thumbed && assembly.results.video_thumbed.length > 0 && (
             <div className="result-item">
               <h4>Video Thumbnails:</h4>
@@ -178,7 +172,6 @@ const UploadComponent: React.FC = () => {
               </div>
             </div>
           )}
-
           {/* Display iPad Encoded Video if present */}
           {assembly.results.ipad_encoded && assembly.results.ipad_encoded[0] && (
             <div className="result-item">
@@ -188,7 +181,6 @@ const UploadComponent: React.FC = () => {
               </a>
             </div>
           )}
-
           {/* Display Transcription Results if present */}
           {assembly.results.transcribed && assembly.results.transcribed[0] && (
             <div className="result-item">
@@ -196,6 +188,15 @@ const UploadComponent: React.FC = () => {
               <pre>{assembly.results.transcribed[0].text}</pre>
               <a href={assembly.results.transcribed[0].ssl_url} target="_blank" className="result-link">
                 Download Transcription
+              </a>
+            </div>
+          )}
+          {/* Create a single Zip file containing all uploaded files */}
+          {assembly.results.archived && assembly.results.archived[0] && (
+            <div className="result-item">
+              <h4>Compressed ZIP File:</h4>
+              <a href={assembly.results.archived[0].ssl_url} target="_blank" className="result-link">
+                Download ZIP File
               </a>
             </div>
           )}
