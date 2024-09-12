@@ -97,10 +97,21 @@ const UploadComponent: React.FC = () => {
       {assembly && isUploaded && (
         <div className="result-section">
           <h3 className="success-message">File processed successfully!</h3>
+
+          {/* Imported file result */}
+          {assembly.results.imported_file && assembly.results.imported_file[0] && (
+            <div className="result-item">
+              <h4>Imported File from S3:</h4>
+              <a href={assembly.results.imported_file[0].ssl_url} target="_blank" className="result-link">
+                Download Imported File
+              </a>
+            </div>
+          )}
+
           {/* Display Optimize Image if present */}
           {assembly.results.image_thumbed && assembly.results.image_thumbed[0] && (
             <div className="result-item">
-              <h4>Resized Image:</h4>
+              <h4>Optimize Image:</h4>
               <a href={assembly.results.image_thumbed[0].ssl_url} target="_blank" className="result-link">
                 Download Optimize Image
               </a>
