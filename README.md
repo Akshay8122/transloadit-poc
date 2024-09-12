@@ -15,6 +15,7 @@ This project demonstrates how to use Transloadit for processing file uploads, in
 - **Speech Recognition**: Detect speech recognition when prompt given to transloadit.
 - **Transcribe**: Convert text from uploaded audio files.
 - **Archived Files**: Generate zip file for uploaded resources.
+- **Import from Amazon S3**: Automatically import uploaded resources from Amazon S3 bucket.
 - **Export to S3**: Automatically uploads the processed files to an Amazon S3 bucket.
 
 ## Usage
